@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function AnimatedBackground(): JSX.Element {
+export default function AnimatedBackground() {
   const floatVariant = (x: number, y: number, scale = 1) => ({
     animate: {
       x: [0, x, 0, -x, 0],

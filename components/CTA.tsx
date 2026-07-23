@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export default function CTA(): JSX.Element {
+export default function CTA() {
   return (
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
