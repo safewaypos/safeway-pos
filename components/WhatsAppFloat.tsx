@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
-export default function WhatsAppFloat(): JSX.Element {
+export default function WhatsAppFloat() {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (

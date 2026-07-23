@@ -44,7 +44,7 @@ const STATS: StatItem[] = [
   },
 ];
 
-export default function Stats(): JSX.Element {
+export default function Stats() {
   const [values, setValues] = useState<number[]>(
     STATS.map(() => 0)
   );

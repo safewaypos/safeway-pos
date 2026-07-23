@@ -15,7 +15,7 @@ import AnimatedBackground from "../components/AnimatedBackground";
 import AnimatedSection from "../components/AnimatedSection";
 import WhatsAppFloat from "../components/WhatsAppFloat";
 
-export default function Page(): JSX.Element {
+export default function Page()  {
   return (
     <div className="relative min-h-screen overflow-hidden bg-slate-900 text-white antialiased">
       <AnimatedBackground />

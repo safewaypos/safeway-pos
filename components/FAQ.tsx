@@ -53,7 +53,7 @@ const FAQS: QA[] = [
   },
 ];
 
-export default function FAQ(): JSX.Element {
+export default function FAQ() {
   const [open, setOpen] = useState<string | null>(FAQS[0].id);
   const contentRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const [heights, setHeights] = useState<Record<string, number>>({});
