@@ -19,7 +19,10 @@ const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center overflow-hidden bg-zinc-950 pt-20">
+    <section
+  id="home"
+  className="relative min-h-[100dvh] flex items-center overflow-hidden bg-zinc-950 pt-20"
+>
       {/* Premium Background */}
       <div className="absolute inset-0 bg-[radial-gradient(#27272a_0.8px,transparent_1px)] bg-[length:4px_4px]" />
       
@@ -94,9 +97,9 @@ const Hero = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <div className="text-sm text-zinc-500">Business Dashboard</div>
-<div className="text-2xl font-semibold tracking-tight">
-  Retail Performance
-</div>
+                    <div className="text-2xl font-semibold tracking-tight">
+                      Retail Performance
+                    </div>
                   </div>
                   <div className="flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                     <div className="h-1.5 w-1.5 bg-emerald-500 rounded-full animate-pulse" /> Real-time
@@ -108,9 +111,9 @@ const Hero = () => {
                   <div className="flex justify-between items-start">
                     <div>
                       <div className="text-sm text-zinc-500">Today's Sales</div>
-<div className="text-4xl font-semibold tracking-[-1.5px] mt-1">
-  LKR 184K
-</div>
+                      <div className="text-4xl font-semibold tracking-[-1.5px] mt-1">
+                        LKR 184K
+                      </div>
                     </div>
                     <div className="text-right">
                       <div className="text-emerald-400 text-sm flex items-center gap-1">
@@ -121,37 +124,32 @@ const Hero = () => {
                   </div>
                 </div>
 
-             {/* Stats Grid */}
-<div className="grid grid-cols-3 gap-3 mb-6">
-  {[
-    { label: "Orders", value: "1,284", icon: Package },
-    { label: "Customers", value: "892", icon: Users },
-    { label: "Today's Sales", value: "LKR 184K", icon: DollarSign },
-  ].map((stat, i) => (
-    <div
-      key={i}
-      className="rounded-2xl border border-white/10 bg-zinc-950/70 p-4"
-    >
-      <stat.icon className="w-4 h-4 text-emerald-500 mb-3" />
-      <div className="text-2xl font-semibold tracking-tight">
-        {stat.value}
-      </div>
-      <div className="text-xs text-zinc-500 mt-0.5">
-        {stat.label}
-      </div>
-    </div>
-  ))}
-</div>
+                {/* Stats Grid */}
+                <div className="grid grid-cols-3 gap-3 mb-6">
+                  {[
+                    { label: "Orders", value: "1,284", icon: Package },
+                    { label: "Customers", value: "892", icon: Users },
+                    { label: "Today's Sales", value: "LKR 184K", icon: DollarSign },
+                  ].map((stat, i) => (
+                    <div
+                      key={i}
+                      className="rounded-2xl border border-white/10 bg-zinc-950/70 p-4"
+                    >
+                      <stat.icon className="w-4 h-4 text-emerald-500 mb-3" />
+                      <div className="text-2xl font-semibold tracking-tight">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs text-zinc-500 mt-0.5">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
-{/* Demo Notice */}
-<div className="mt-3 text-center text-[11px] text-zinc-500">
-  *Dashboard values shown are for demonstration purposes only.
-</div>
-
-{/* Demo Notice */}
-<div className="mt-3 text-center text-[11px] text-zinc-500">
-  *Dashboard values shown are for demonstration purposes only.
-</div>
+                {/* Demo Notice */}
+                <div className="mt-3 text-center text-[11px] text-zinc-500">
+                  *Dashboard values shown are for demonstration purposes only.
+                </div>
 
                 {/* Latest Sales */}
                 <div>

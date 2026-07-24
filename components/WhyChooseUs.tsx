@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { 
   Zap, 
   Clock, 
@@ -55,6 +55,11 @@ const comparisonData = [
   { feature: "Affordable Pricing", safeway: true, traditional: false },
 ];
 
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const WhyChooseUs = () => {
   return (
     <section className="relative py-24 bg-zinc-950 overflow-hidden">
@@ -107,8 +112,9 @@ const WhyChooseUs = () => {
                 return (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
                     whileHover={{ y: -4 }}

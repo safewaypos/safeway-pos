@@ -65,7 +65,7 @@ export default function FAQ() {
       newHeights[f.id] = el ? el.scrollHeight : 0;
     });
     setHeights(newHeights);
-    // Recompute on resize
+
     const onResize = () => {
       const h: Record<string, number> = {};
       FAQS.forEach((f) => {
@@ -74,12 +74,13 @@ export default function FAQ() {
       });
       setHeights(h);
     };
+
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
   return (
-    <section className="py-16 bg-slate-900/40">
+    <section id="faq" className="py-16 bg-slate-900/40">
       <div className="max-w-5xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
@@ -134,7 +135,9 @@ export default function FAQ() {
                   aria-hidden={!isOpen}
                 >
                   <div
-                    ref={(el) => (contentRefs.current[item.id] = el)}
+                    ref={(el) => {
+                      contentRefs.current[item.id] = el;
+                    }}
                     className="text-sm text-slate-300 leading-relaxed"
                   >
                     {item.a}
@@ -171,14 +174,6 @@ export default function FAQ() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (prefers-reduced-motion: no-preference) {
-          .group:hover {
-            transform: translateZ(0);
-          }
-        }
-      `}</style>
     </section>
   );
 }

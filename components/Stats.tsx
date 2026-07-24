@@ -76,6 +76,7 @@ export default function Stats() {
     };
 
     rafRef.current = requestAnimationFrame(step);
+
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       startRef.current = null;
@@ -92,7 +93,6 @@ export default function Stats() {
               <div
                 key={s.id}
                 className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-b from-white/3 to-transparent hover:from-white/5 transition transform hover:-translate-y-1"
-                aria-hidden={false}
               >
                 <div
                   className="flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br from-slate-700/60 to-slate-800/40 border border-white/6 text-emerald-300 shadow-inner"
