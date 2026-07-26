@@ -109,10 +109,10 @@ export default function Navigation() {
  const Logo = () => (
   <div className="flex items-center gap-3">
     {/* Premium Logo Icon */}
-    <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 shadow-lg shadow-emerald-500/25">
+    <div className="relative flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 shadow-lg shadow-emerald-500/25">
       <svg
         viewBox="0 0 24 24"
-        className="h-9 w-9"
+        className="h-8 w-8 sm:h-9 sm:w-9"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -150,7 +150,7 @@ export default function Navigation() {
 
     {/* Brand Name */}
     <div className="leading-none">
-      <div className="text-[22px] font-bold tracking-tight">
+      <div className="text-[18px] sm:text-[22px] font-bold tracking-tight">
         <span className="text-white">SAFEWAY</span>
         <span className="bg-gradient-to-r from-emerald-400 to-emerald-500 bg-clip-text text-transparent">
           POS
@@ -163,14 +163,13 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 h-16 md:h-20 transition-all duration-300 ${
           isScrolled
             ? 'bg-zinc-950/80 backdrop-blur-2xl border-b border-white/10'
             : 'bg-zinc-950/60 backdrop-blur-2xl'
         }`}
-        style={{ height: '80px' }}
       >
-        <div className="max-w-7xl mx-auto h-full px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }} className="flex items-center">
             <Logo />
@@ -233,9 +232,10 @@ export default function Navigation() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+  initial={{ opacity: 0, x: "100%" }}
+  animate={{ opacity: 1, x: 0 }}
+  exit={{ opacity: 0, x: "100%" }}
+  transition={{ duration: 0.25, ease: "easeInOut" }}
             className="fixed inset-0 z-[60] md:hidden bg-zinc-950/95 backdrop-blur-3xl"
             onClick={closeMobileMenu}
           >
@@ -248,7 +248,11 @@ export default function Navigation() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.03 }}
                     onClick={() => scrollToSection(item.href)}
-                    className="text-left py-4 text-xl font-medium text-white border-b border-white/10 hover:text-emerald-400 transition-colors"
+                    className={`text-left px-4 py-4 rounded-xl text-lg font-semibold border-b border-white/10 transition-all duration-200 ${
+  activeSection === item.href.replace('#', '')
+    ? 'bg-emerald-500/15 text-emerald-400'
+    : 'text-white hover:bg-white/5 hover:text-emerald-400'
+}`}
                   >
                     {item.label}
                   </motion.button>
