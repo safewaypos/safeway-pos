@@ -33,7 +33,7 @@ const Hero = () => {
       {/* Glass Layers */}
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/60 via-zinc-950/40 to-zinc-950/80" />
 
-      <div className="relative max-w-7xl mx-auto px-6 pt-12 pb-20">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-16 sm:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* LEFT CONTENT */}
@@ -44,21 +44,21 @@ const Hero = () => {
                 Trusted by 1,000+ retailers
               </div>
 
-              <h1 className="text-6xl lg:text-7xl xl:text-[76px] leading-[1.05] font-semibold tracking-[-3.2px] text-white">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-[76px] leading-tight lg:leading-[1.05] tracking-[-1.5px] lg:tracking-[-3.2px] font-semibold text-white">
                 Complete POS<br />& ERP<br />
                 <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-400 bg-clip-text text-transparent">
                   Solution for Growing Businesses
                 </span>
               </h1>
 
-              <p className="max-w-lg text-xl text-zinc-400 tracking-[-0.2px]">
+              <p className="max-w-xl text-base sm:text-lg lg:text-xl leading-7 text-zinc-400 tracking-normal">
                 Enterprise-grade point of sale with real-time inventory, 
                 automated accounting, and Powerful reporting and business insights.
               </p>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center gap-3 pt-2">
               <button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 className="group flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-[15px] font-semibold tracking-[-0.2px] shadow-[0_0_25px_rgb(16,185,129,0.35)] hover:shadow-[0_0_40px_rgb(16,185,129,0.5)] hover:-translate-y-0.5 active:scale-[0.985] transition-all duration-200"
@@ -69,7 +69,7 @@ const Hero = () => {
 
               <button 
                 onClick={() => document.getElementById('demo-video')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group flex items-center justify-center gap-3 px-7 py-4 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] text-white text-[15px] font-medium tracking-[-0.2px] transition-all duration-200 hover:-translate-y-0.5"
+               className="group flex w-full sm:w-auto items-center justify-center gap-3 px-6 sm:px-7 py-4 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] text-white text-[15px] font-medium tracking-[-0.2px] transition-all duration-200 hover:-translate-y-0.5"
               >
                 <Play className="w-4 h-4" />
                 Watch Demo
@@ -93,11 +93,11 @@ const Hero = () => {
           <div className="lg:col-span-5 xl:col-span-5 relative mt-8 lg:mt-0">
             <div className="relative z-10">
               {/* Main Glass Dashboard */}
-              <div className="relative rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-3xl p-6 shadow-2xl">
+              <div className="relative rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-3xl p-4 sm:p-6 shadow-2xl">
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <div className="text-sm text-zinc-500">Business Dashboard</div>
-                    <div className="text-2xl font-semibold tracking-tight">
+                    <div className="text-xl sm:text-2xl font-semibold tracking-tight">
                       Retail Performance
                     </div>
                   </div>
@@ -111,7 +111,7 @@ const Hero = () => {
                   <div className="flex justify-between items-start">
                     <div>
                       <div className="text-sm text-zinc-500">Today's Sales</div>
-                      <div className="text-4xl font-semibold tracking-[-1.5px] mt-1">
+                      <div className="text-3xl sm:text-4xl font-semibold tracking-[-1px] sm:tracking-[-1.5px] mt-1">
                         LKR 184K
                       </div>
                     </div>
@@ -125,7 +125,7 @@ const Hero = () => {
                 </div>
 
                 {/* Stats Grid */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
                   {[
                     { label: "Orders", value: "1,284", icon: Package },
                     { label: "Customers", value: "892", icon: Users },
@@ -133,10 +133,10 @@ const Hero = () => {
                   ].map((stat, i) => (
                     <div
                       key={i}
-                      className="rounded-2xl border border-white/10 bg-zinc-950/70 p-4"
+                      className="rounded-2xl border border-white/10 bg-zinc-950/70 p-4 text-center sm:text-left"
                     >
                       <stat.icon className="w-4 h-4 text-emerald-500 mb-3" />
-                      <div className="text-2xl font-semibold tracking-tight">
+                      <div className="text-xl sm:text-2xl font-semibold tracking-tight">
                         {stat.value}
                       </div>
                       <div className="text-xs text-zinc-500 mt-0.5">

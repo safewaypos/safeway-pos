@@ -96,23 +96,23 @@ const iconVariants: Variants = {
 
 const Features = () => {
   return (
-    <section id="features" className="relative py-24 bg-zinc-950 overflow-hidden">
+    <section id="features" className="relative py-16 sm:py-20 lg:py-24 bg-zinc-950 overflow-hidden">
       {/* Premium Background */}
       <div className="absolute inset-0 bg-[radial-gradient(#27272a_0.7px,transparent_1px)] bg-[length:4px_4px]" />
       <div className="absolute inset-0 bg-[radial-gradient(at_25%_30%,rgba(16,185,129,0.07)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(at_75%_70%,rgba(16,185,129,0.06)_0%,transparent_55%)]" />
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/80 via-transparent to-zinc-950/90" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.02] text-sm text-emerald-400">
             Enterprise Capabilities
           </div>
-          <h2 className="text-6xl lg:text-7xl font-semibold tracking-[-3.5px] text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-semibold leading-tight tracking-[-1.5px] lg:tracking-[-3.5px] text-white mb-5">
             Built for the <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-400 bg-clip-text text-transparent">most demanding</span> retailers
           </h2>
-          <p className="max-w-2xl mx-auto text-xl text-zinc-400 tracking-[-0.3px]">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg lg:text-xl leading-7 text-zinc-400">
             Every feature is designed to reduce friction, increase revenue, and give you complete control.
           </p>
         </div>
@@ -123,7 +123,7 @@ const Features = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
         >
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -135,7 +135,7 @@ const Features = () => {
                   y: -6, 
                   transition: { duration: 0.2 } 
                 }}
-                className="group relative rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-3xl p-8 hover:bg-zinc-900/80 transition-all duration-300 overflow-hidden"
+               className="group relative rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-3xl p-6 sm:p-8 hover:bg-zinc-900/80 transition-all duration-300 overflow-hidden"
               >
                 {/* Animated Gradient Border */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-500/0 via-emerald-500/0 to-emerald-500/0 group-hover:from-emerald-500/10 group-hover:via-emerald-500/5 group-hover:to-emerald-500/10 transition-all duration-500" />
@@ -149,15 +149,15 @@ const Features = () => {
                     variants={iconVariants}
                     initial="initial"
                     whileHover="hover"
-                    className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] group-hover:border-emerald-500/30 transition-colors"
+                    className="mb-6 inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] group-hover:border-emerald-500/30 transition-colors"
                   >
-                    <Icon className="h-7 w-7 text-emerald-400" />
+                    <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-emerald-400" />
                   </motion.div>
 
-                  <h3 className="text-2xl font-semibold tracking-[-1px] text-white mb-4">
+                  <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-white mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-[15px] leading-relaxed text-zinc-400">
+                  <p className="text-sm sm:text-[15px] leading-7 text-zinc-400">
                     {feature.description}
                   </p>
                 </div>
@@ -168,14 +168,14 @@ const Features = () => {
 
         {/* Premium CTA Strip */}
         <div className="mt-16 flex justify-center">
-          <div className="inline-flex flex-col md:flex-row items-center gap-6 rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-2xl px-10 py-6">
+         <div className="w-full max-w-5xl flex flex-col md:flex-row items-center justify-between gap-5 rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-2xl px-6 sm:px-8 lg:px-10 py-6">
             <div className="text-center md:text-left">
-              <div className="text-xl font-semibold tracking-tight text-white">Ready to modernize your retail operations?</div>
+             <div className="text-lg sm:text-xl font-semibold tracking-tight text-white">Ready to modernize your retail operations?</div>
               <div className="text-zinc-400 mt-1 text-sm">Join 2,400+ retailers already using SAFEWAY POS.</div>
             </div>
             <button
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:shadow-[0_0_30px_rgb(16,185,129,0.4)] active:scale-[0.985]"
+              className="group flex w-full sm:w-auto items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-6 sm:px-8 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:shadow-[0_0_30px_rgb(16,185,129,0.4)] active:scale-[0.985]"
             >
               Book Free Demo
               <span className="transition-transform group-hover:translate-x-0.5">→</span>
