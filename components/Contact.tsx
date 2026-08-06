@@ -1,45 +1,72 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import {
   Phone,
   Mail,
   MapPin,
   MessageCircle,
-  Building2,
   User,
+  Building2,
   Send,
+  Sparkles,
 } from 'lucide-react';
 
-const contactInfo = [
+const contactCards = [
   {
     icon: Phone,
     title: 'Call Us',
-    value: '+94 XX XXX XXXX',
-    link: 'tel:+94XXXXXXXXX',
+    value: '+94 76 469 2329',
+    href: 'tel:+94764692329',
   },
   {
     icon: MessageCircle,
     title: 'WhatsApp',
-    value: '+94 XX XXX XXXX',
-    link: 'https://wa.me/94XXXXXXXXX',
+    value: '+94 76 469 2329',
+    href: 'https://wa.me/94764692329',
   },
   {
     icon: Mail,
     title: 'Email',
     value: 'info@safewayerp.lk',
-    link: 'mailto:info@safewayerp.lk',
+    href: 'mailto:info@safewayerp.lk',
   },
   {
     icon: MapPin,
     title: 'Office',
     value: 'Jaffna, Sri Lanka',
-    link: '#',
+    href: '#',
   },
 ];
 
-const Contact = () => {
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 35,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+    },
+  },
+};
+
+export default function Contact() {
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -56,7 +83,7 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const submitForm = (e: React.FormEvent) => {
     e.preventDefault();
 
     const text = `Hello SAFEWAY POS,
@@ -69,7 +96,7 @@ Message :
 ${form.message}`;
 
     window.open(
-      `https://wa.me/94XXXXXXXXX?text=${encodeURIComponent(text)}`,
+      `https://wa.me/94764692329?text=${encodeURIComponent(text)}`,
       '_blank'
     );
   };
@@ -77,227 +104,283 @@ ${form.message}`;
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-zinc-950 py-20 lg:py-28"
+      className="relative overflow-hidden bg-white py-24"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(#27272a_0.8px,transparent_1px)] bg-[length:4px_4px]" />
+      {/* Background */}
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#2563eb10,transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#06b6d410,transparent_45%)]" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+
+        {/* Header */}
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mx-auto mb-20 max-w-3xl text-center"
         >
-          <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm text-emerald-400">
-            Contact Us
-          </span>
 
-          <h2 className="mt-6 text-4xl font-bold text-white lg:text-6xl">
+          <motion.div variants={fadeUp}>
+
+            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-semibold text-blue-700">
+
+              <Sparkles className="mr-2 h-4 w-4" />
+
+              Contact SAFEWAY
+
+            </span>
+
+          </motion.div>
+
+          <motion.h2
+            variants={fadeUp}
+            className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl"
+          >
             Let's Build Your
-            <span className="block bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
               Business Together
             </span>
-          </h2>
+          </motion.h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-zinc-400">
-            Tell us about your business requirements.
-            We'll recommend the best software and hardware solution
-            for your business.
-          </p>
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 text-lg leading-8 text-slate-600"
+          >
+            Tell us about your business requirements and we'll recommend
+            the best software solution for your business.
+          </motion.p>
+
         </motion.div>
-                <div className="grid gap-10 lg:grid-cols-2">
+
+        <div className="grid gap-12 lg:grid-cols-2">
 
           {/* Contact Form */}
+
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
+            className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-xl"
           >
-            <h3 className="mb-8 text-3xl font-semibold text-white">
-              Request FREE Consultation
+
+            <h3 className="text-3xl font-bold text-slate-900">
+              Request Free Consultation
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <p className="mt-3 text-slate-600">
+              Fill out the form below and we'll contact you shortly.
+            </p>
 
-              <div className="relative">
-                <User className="absolute left-4 top-4 h-5 w-5 text-zinc-500" />
+            <form
+              onSubmit={submitForm}
+              className="mt-8 space-y-6"
+            >
+
+                          <div className="relative">
+
+                <User className="absolute left-5 top-4 h-5 w-5 text-blue-500" />
+
                 <input
                   type="text"
                   name="name"
                   placeholder="Your Name"
+                  required
                   value={form.name}
                   onChange={handleChange}
-                  required
-                  className="w-full rounded-2xl border border-white/10 bg-zinc-900/70 py-4 pl-12 pr-4 text-white outline-none transition focus:border-emerald-500"
+                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-4 pl-14 pr-5 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
                 />
+
               </div>
 
               <div className="relative">
-                <Phone className="absolute left-4 top-4 h-5 w-5 text-zinc-500" />
+
+                <Phone className="absolute left-5 top-4 h-5 w-5 text-blue-500" />
+
                 <input
                   type="tel"
                   name="phone"
                   placeholder="Phone Number"
+                  required
                   value={form.phone}
                   onChange={handleChange}
-                  required
-                  className="w-full rounded-2xl border border-white/10 bg-zinc-900/70 py-4 pl-12 pr-4 text-white outline-none transition focus:border-emerald-500"
+                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-4 pl-14 pr-5 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
                 />
+
               </div>
 
               <div className="relative">
-                <Building2 className="absolute left-4 top-4 h-5 w-5 text-zinc-500" />
+
+                <Building2 className="absolute left-5 top-4 h-5 w-5 text-blue-500" />
+
                 <input
                   type="text"
                   name="business"
                   placeholder="Business Name"
                   value={form.business}
                   onChange={handleChange}
-                  className="w-full rounded-2xl border border-white/10 bg-zinc-900/70 py-4 pl-12 pr-4 text-white outline-none transition focus:border-emerald-500"
+                  className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-4 pl-14 pr-5 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
                 />
+
               </div>
 
               <textarea
-                name="message"
                 rows={5}
+                name="message"
                 placeholder="Tell us about your business requirements..."
+                required
                 value={form.message}
                 onChange={handleChange}
-                required
-                className="w-full rounded-2xl border border-white/10 bg-zinc-900/70 p-4 text-white outline-none transition focus:border-emerald-500"
+                className="w-full rounded-2xl border border-slate-200 bg-slate-50 p-5 text-slate-900 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
               />
 
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 py-4 font-semibold text-white transition hover:scale-[1.02]"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 py-4 font-semibold text-white transition hover:scale-[1.02]"
               >
                 <Send className="h-5 w-5" />
-                Request FREE Consultation
+                Request Free Consultation
               </button>
 
             </form>
+
           </motion.div>
 
           {/* Contact Details */}
+
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            className="grid gap-6"
+            className="space-y-6"
           >
-            {contactInfo.map((item, index) => {
+
+            {contactCards.map((item) => {
+
               const Icon = item.icon;
 
               return (
-                <a
-                  key={index}
-                  href={item.link}
-                  target={item.link.startsWith('http') ? '_blank' : '_self'}
+
+                <motion.a
+                  key={item.title}
+                  variants={fadeUp}
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : '_self'}
                   rel="noopener noreferrer"
-                  className="group rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition-all duration-300 hover:border-emerald-500/40 hover:bg-white/10"
+                  whileHover={{
+                    y: -6,
+                  }}
+                  className="flex items-center gap-5 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-xl"
                 >
-                  <div className="flex items-center gap-5">
 
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/10">
-                      <Icon className="h-7 w-7 text-emerald-400" />
-                    </div>
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white">
 
-                    <div>
-                      <h4 className="text-lg font-semibold text-white">
-                        {item.title}
-                      </h4>
-
-                      <p className="mt-1 text-zinc-400 group-hover:text-white transition">
-                        {item.value}
-                      </p>
-                    </div>
+                    <Icon className="h-8 w-8" />
 
                   </div>
-                </a>
+
+                  <div>
+
+                    <h4 className="text-xl font-bold text-slate-900">
+                      {item.title}
+                    </h4>
+
+                    <p className="mt-2 text-slate-600">
+                      {item.value}
+                    </p>
+
+                  </div>
+
+                </motion.a>
+
               );
+
             })}
+
           </motion.div>
 
         </div>
+
                 {/* Google Map */}
+
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          className="mt-20"
+          className="mt-20 overflow-hidden rounded-[36px] border border-slate-200 bg-white shadow-xl"
         >
-          <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
 
-            <div className="border-b border-white/10 p-6">
-              <h3 className="text-2xl font-semibold text-white">
-                Visit Our Office
-              </h3>
+          <div className="border-b border-slate-200 p-8">
 
-              <p className="mt-2 text-zinc-400">
-                We'd love to meet you. Visit our office or contact us anytime.
-              </p>
-            </div>
+            <h3 className="text-3xl font-bold text-slate-900">
+              Visit Our Office
+            </h3>
 
-            <iframe
-              src="YOUR_GOOGLE_MAPS_EMBED_LINK"
-              width="100%"
-              height="420"
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              className="border-0"
-            />
+            <p className="mt-3 text-slate-600">
+              We'd love to meet you. Visit our office or contact us anytime.
+            </p>
+
           </div>
+
+          <iframe
+            src="YOUR_GOOGLE_MAPS_EMBED_LINK"
+            width="100%"
+            height="420"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            className="border-0"
+          />
+
         </motion.div>
 
         {/* Bottom CTA */}
+
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          className="mt-20"
+          className="mt-20 overflow-hidden rounded-[36px] bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 p-10 shadow-2xl md:p-14"
         >
-          <div className="rounded-3xl border border-emerald-500/20 bg-gradient-to-r from-emerald-500/10 via-zinc-900 to-emerald-500/10 p-10 text-center">
 
-            <h3 className="text-3xl font-bold text-white sm:text-4xl">
-              Ready to Grow Your Business?
-            </h3>
+          <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
 
-            <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-zinc-400">
-              From billing software and ERP systems to cloud hosting,
-              barcode solutions, hardware, installation, training, and
-              ongoing support — SAFEWAY is your complete business
-              technology partner.
-            </p>
+            <div>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <h2 className="text-3xl font-extrabold text-white md:text-4xl">
+                Ready to Grow Your Business?
+              </h2>
+
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-blue-100">
+                Let's discuss the perfect POS, ERP or Cloud solution for
+                your business. Our team is ready to help you every step
+                of the way.
+              </p>
+
+            </div>
+
+            <div className="flex flex-col gap-4 sm:flex-row">
 
               <button
                 onClick={() =>
-                  window.open(
-                    "https://wa.me/94764692329",
-                    "_blank"
-                  )
+                  window.open('https://wa.me/94764692329', '_blank')
                 }
-                className="rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-8 py-4 font-semibold text-white transition hover:scale-105"
+                className="rounded-full bg-white px-8 py-4 font-semibold text-blue-700 transition hover:scale-105"
               >
                 Chat on WhatsApp
               </button>
 
               <button
                 onClick={() =>
-                  window.open(
-                    "tel:+94764692329"
-                  )
+                  window.open('tel:+94764692329')
                 }
-                className="rounded-2xl border border-white/10 px-8 py-4 font-semibold text-white transition hover:bg-white/5"
+                className="rounded-full border border-white/30 px-8 py-4 font-semibold text-white transition hover:bg-white/10"
               >
                 Call Now
               </button>
@@ -305,11 +388,10 @@ ${form.message}`;
             </div>
 
           </div>
+
         </motion.div>
 
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

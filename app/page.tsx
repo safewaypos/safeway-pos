@@ -4,16 +4,15 @@ import Hero from "../components/Hero";
 import Features from "../components/Features";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ERPModules from "../components/ERPModules";
-import Stats from "../components/Stats";
 import Pricing from "../components/Pricing";
 import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
 import Contact from "../components/Contact";
-import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 import AnimatedBackground from "../components/AnimatedBackground";
 import AnimatedSection from "../components/AnimatedSection";
 import WhatsAppFloat from "../components/WhatsAppFloat";
+import Trusted from "@/components/Trusted";
 
 export default function Page()  {
   return (
@@ -31,12 +30,11 @@ export default function Page()  {
 
   <WhyChooseUs />
   <ERPModules />
-  <Stats />
+  <Trusted />
   <Pricing />
   <Testimonials />
   <FAQ />
   <Contact />
-  <CTA />
 </main>
 
       <Footer />

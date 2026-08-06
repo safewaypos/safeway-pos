@@ -1,205 +1,444 @@
 'use client';
 
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
-import { 
-  Zap, 
-  Clock, 
-  Shield, 
-  FileText, 
-  Headset, 
-  DollarSign, 
-  Check, 
-  X 
+import { motion, type Variants } from 'framer-motion';
+import {
+  Zap,
+  ShieldCheck,
+  Clock3,
+  Headphones,
+  Wallet,
+  FileCheck2,
+  ArrowRight,
+  CheckCircle2,
+  Sparkles,
 } from 'lucide-react';
 
 const benefits = [
   {
     icon: Zap,
-    title: "Easy to Use",
-    description: "Intuitive interface designed for speed. Get your team productive in minutes, not weeks.",
+    title: 'Lightning Fast',
+    description:
+      'Complete billing, inventory updates and accounting in seconds without slowing down your business.',
   },
   {
-    icon: Clock,
-    title: "Fast Performance",
-    description: "Lightning-fast transactions and instant sync across all devices and locations.",
+    icon: ShieldCheck,
+    title: 'Highly Secure',
+    description:
+      'Role-based access, automatic backups and secure database protection keep your business safe.',
   },
   {
-    icon: Shield,
-    title: "Secure Data",
-    description: "Bank-level encryption and automatic daily backups with 99.99% uptime guarantee.",
+    icon: Clock3,
+    title: 'Save Time',
+    description:
+      'Automate daily operations and reduce manual work with smart workflows.',
   },
   {
-    icon: FileText,
-    title: "VAT Ready",
-    description: "Built-in GCC VAT compliance with automated filings and audit-ready reports.",
+    icon: FileCheck2,
+    title: 'Accurate Reports',
+    description:
+      'Generate sales, profit, stock and financial reports instantly with one click.',
   },
   {
-    icon: Headset,
-    title: "Dedicated Support",
-    description: "Real human support from our expert team with dedicated account managers.",
+    icon: Headphones,
+    title: 'Local Support',
+    description:
+      'Our experienced support team is always ready to help with installation, training and technical assistance.',
   },
   {
-    icon: DollarSign,
-    title: "Affordable Pricing",
-    description: "Transparent, scalable plans designed for growing retailers without hidden fees.",
+    icon: Wallet,
+    title: 'Affordable',
+    description:
+      'Powerful enterprise features at a price designed for growing businesses.',
   },
 ];
 
-const comparisonData = [
-  { feature: "Easy Setup", safeway: true, traditional: false },
-  { feature: "Local Support", safeway: true, traditional: false },
-  { feature: "Regular Updates", safeway: true, traditional: false },
-  { feature: "VAT Ready", safeway: true, traditional: false },
-  { feature: "Secure Backup", safeway: true, traditional: false },
-  { feature: "Affordable Pricing", safeway: true, traditional: false },
+const comparison = [
+  {
+    feature: 'Easy Installation',
+    safeway: '5 Minutes',
+    other: 'Several Hours',
+  },
+  {
+    feature: 'Training',
+    safeway: 'Included',
+    other: 'Extra Cost',
+  },
+  {
+    feature: 'Customer Support',
+    safeway: '24/7',
+    other: 'Limited',
+  },
+  {
+    feature: 'Software Updates',
+    safeway: 'Free',
+    other: 'Paid',
+  },
+  {
+    feature: 'Data Backup',
+    safeway: 'Automatic',
+    other: 'Manual',
+  },
+  {
+    feature: 'Performance',
+    safeway: 'Very Fast',
+    other: 'Average',
+  },
 ];
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 35,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+    },
+  },
 };
 
 const WhyChooseUs = () => {
   return (
-    <section className="relative py-24 bg-zinc-950 overflow-hidden">
-      {/* Premium Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(#27272a_0.7px,transparent_1px)] bg-[length:4px_4px]" />
-      <div className="absolute inset-0 bg-[radial-gradient(at_25%_25%,rgba(16,185,129,0.07)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(at_75%_75%,rgba(16,185,129,0.06)_0%,transparent_55%)]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/70 via-transparent to-zinc-950/90" />
+    <section
+      id="why"
+      className="relative overflow-hidden bg-white py-24"
+    >
+      {/* Background */}
 
-      <div className="relative max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.02] text-sm text-emerald-400">
-            Why Retailers Choose Us
-          </div>
-          <h2 className="text-6xl lg:text-7xl font-semibold tracking-[-3.5px] text-white mb-6">
-            Built differently.<br />Built <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-400 bg-clip-text text-transparent">better</span>.
-          </h2>
-          <p className="max-w-2xl mx-auto text-xl text-zinc-400 tracking-[-0.3px]">
-            Every detail is crafted to give you an unfair advantage over traditional POS systems.
-          </p>
-        </div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#2563eb10,transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#06b6d410,transparent_45%)]" />
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
-          {/* Left Content */}
-          <div className="lg:col-span-5">
-            <div className="sticky top-24">
-              <h3 className="text-5xl font-semibold tracking-[-2.5px] text-white leading-tight mb-6">
-                The modern standard<br />for retail operations.
-              </h3>
-              <p className="text-lg text-zinc-400 mb-8">
-                We built SAFEWAY POS from the ground up to solve the real problems retailers face every day.
-              </p>
-              <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:shadow-[0_0_30px_rgb(16,185,129,0.4)] active:scale-[0.985]"
-              >
-                Book Free Demo
-                <span className="transition-transform group-hover:translate-x-0.5">→</span>
-              </button>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+
+        {/* Header */}
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mx-auto max-w-3xl text-center"
+        >
+
+          <motion.div variants={fadeUp}>
+
+            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-semibold text-blue-700">
+
+              <Sparkles className="mr-2 h-4 w-4" />
+
+              Why Businesses Choose SAFEWAY
+
+            </span>
+
+          </motion.div>
+
+          <motion.h2
+            variants={fadeUp}
+            className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl"
+          >
+            Built For
+            <span className="block bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              Speed, Simplicity & Growth
+            </span>
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 text-lg leading-8 text-slate-600"
+          >
+            SAFEWAY POS combines powerful technology with a simple user
+            experience, helping businesses save time, increase productivity
+            and make better decisions every day.
+          </motion.p>
+
+        </motion.div>
+
+        {/* Main Grid */}
+
+        <div className="mt-20 grid gap-16 lg:grid-cols-2">
+
+          {/* LEFT */}
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid gap-6 sm:grid-cols-2"
+          >
+
+            {benefits.map((item) => {
+
+              const Icon = item.icon;
+
+              return (
+
+                <motion.div
+                  key={item.title}
+                  variants={fadeUp}
+                  whileHover={{
+                    y: -8,
+                  }}
+                  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:shadow-xl"
+                >
+
+                  <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white">
+
+                    <Icon className="h-7 w-7" />
+
+                  </div>
+
+                  <h3 className="text-xl font-bold text-slate-900">
+
+                    {item.title}
+
+                  </h3>
+
+                  <p className="mt-4 leading-7 text-slate-600">
+
+                    {item.description}
+
+                  </p>
+
+                </motion.div>
+
+              );
+
+            })}
+
+          </motion.div>
+
+          {/* RIGHT */}
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-xl"
+          >
+
+            <div className="flex items-center justify-between">
+
+              <div>
+
+                <h3 className="text-2xl font-bold text-slate-900">
+                  SAFEWAY vs Traditional Software
+                </h3>
+
+                <p className="mt-2 text-slate-600">
+                  See the difference.
+                </p>
+
+              </div>
+
+              <div className="rounded-2xl bg-blue-100 p-4">
+
+                <CheckCircle2 className="h-7 w-7 text-blue-600" />
+
+              </div>
+
             </div>
-          </div>
 
-          {/* Right - 6 Premium Cards */}
-          <div className="lg:col-span-7">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {benefits.map((benefit, index) => {
-                const Icon = benefit.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    variants={cardVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    whileHover={{ y: -4 }}
-                    className="group relative rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-3xl p-8 hover:bg-zinc-900/80 transition-all duration-300"
-                  >
-                    <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(300px_circle_at_50%_50%,rgba(16,185,129,0.06),transparent)]" />
+            <div className="mt-8 space-y-5">
 
-                    <div className="relative z-10">
-                      <motion.div
-                        whileHover={{ scale: 1.08 }}
-                        transition={{ duration: 0.2 }}
-                        className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] group-hover:border-emerald-500/30"
-                      >
-                        <Icon className="h-7 w-7 text-emerald-400" />
-                      </motion.div>
+                            {comparison.map((item) => (
+                <div
+                  key={item.feature}
+                  className="rounded-2xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-md"
+                >
+                  <div className="mb-5">
+                    <h4 className="text-lg font-semibold text-slate-900">
+                      {item.feature}
+                    </h4>
+                  </div>
 
-                      <h4 className="text-2xl font-semibold tracking-[-1px] text-white mb-3">
-                        {benefit.title}
-                      </h4>
-                      <p className="text-[15px] leading-relaxed text-zinc-400">
-                        {benefit.description}
+                  <div className="grid grid-cols-2 gap-4">
+
+                    {/* SAFEWAY */}
+
+                    <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 p-5 text-white">
+
+                      <p className="text-xs font-semibold uppercase tracking-wider text-blue-100">
+                        SAFEWAY POS
                       </p>
+
+                      <div className="mt-4 flex items-center gap-3">
+
+                        <CheckCircle2 className="h-6 w-6" />
+
+                        <span className="text-lg font-bold">
+                          {item.safeway}
+                        </span>
+
+                      </div>
+
                     </div>
-                  </motion.div>
-                );
-              })}
+
+                    {/* Traditional */}
+
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+
+                      <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                        Traditional
+                      </p>
+
+                      <div className="mt-4 flex items-center gap-3">
+
+                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-300">
+                          <span className="text-xs font-bold text-white">
+                            ×
+                          </span>
+                        </div>
+
+                        <span className="text-lg font-semibold text-slate-700">
+                          {item.other}
+                        </span>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              ))}
+
             </div>
-          </div>
+
+          </motion.div>
+
         </div>
 
-        {/* Premium Comparison Table */}
-        <div className="mb-16">
-          <div className="text-center mb-10">
-            <h3 className="text-4xl font-semibold tracking-[-2px] text-white mb-3">
-              How we compare
-            </h3>
-            <p className="text-zinc-400">See why leading retailers are switching to SAFEWAY POS.</p>
-          </div>
+        {/* Feature Strip */}
 
-          <div className="rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-3xl overflow-hidden">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-white/10">
-                  <th className="text-left py-6 px-8 text-sm font-medium text-zinc-400">Feature</th>
-                  <th className="text-center py-6 px-8 text-sm font-medium text-emerald-400">SAFEWAY POS</th>
-                  <th className="text-center py-6 px-8 text-sm font-medium text-zinc-400">Traditional Software</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonData.map((row, index) => (
-                  <tr key={index} className="border-b border-white/10 last:border-0 hover:bg-white/[0.015] transition-colors">
-                    <td className="py-5 px-8 text-white font-medium">{row.feature}</td>
-                    <td className="py-5 px-8 text-center">
-                      {row.safeway && <Check className="inline h-5 w-5 text-emerald-500" />}
-                    </td>
-                    <td className="py-5 px-8 text-center">
-                      {row.traditional ? (
-                        <Check className="inline h-5 w-5 text-emerald-500" />
-                      ) : (
-                        <X className="inline h-5 w-5 text-red-500/70" />
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mt-24 rounded-[32px] bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 p-10 text-white shadow-2xl"
+        >
 
-        {/* Bottom CTA Strip */}
-        <div className="flex justify-center">
-          <div className="inline-flex flex-col md:flex-row items-center gap-6 rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-2xl px-10 py-6">
-            <div className="text-center md:text-left">
-              <div className="text-xl font-semibold tracking-tight text-white">Ready to simplify your business?</div>
-              <div className="text-zinc-400 mt-1 text-sm">Experience the difference with a personalized demo.</div>
+          <div className="grid gap-8 md:grid-cols-4">
+
+            <div>
+              <h3 className="text-4xl font-extrabold">
+                1500+
+              </h3>
+
+              <p className="mt-2 text-blue-100">
+                Businesses Trust SAFEWAY
+              </p>
             </div>
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:shadow-[0_0_30px_rgb(16,185,129,0.4)] active:scale-[0.985]"
-            >
-              Book Free Demo
-              <span className="transition-transform group-hover:translate-x-0.5">→</span>
-            </button>
+
+            <div>
+              <h3 className="text-4xl font-extrabold">
+                99.9%
+              </h3>
+
+              <p className="mt-2 text-blue-100">
+                Reliable Performance
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-4xl font-extrabold">
+                24/7
+              </h3>
+
+              <p className="mt-2 text-blue-100">
+                Technical Support
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-4xl font-extrabold">
+                12+
+              </h3>
+
+              <p className="mt-2 text-blue-100">
+                Years of Experience
+              </p>
+            </div>
+
           </div>
-        </div>
+
+        </motion.div>
+
+                {/* CTA */}
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          <div className="overflow-hidden rounded-[36px] border border-slate-200 bg-white p-10 shadow-xl md:p-14">
+
+            <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
+
+              <div>
+
+                <h2 className="text-3xl font-extrabold text-slate-900 md:text-4xl">
+                  Ready to Experience the Difference?
+                </h2>
+
+                <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+                  Discover how SAFEWAY POS can simplify your billing,
+                  inventory, accounting, reporting, and day-to-day business
+                  operations with one powerful platform.
+                </p>
+
+              </div>
+
+              <div className="flex flex-col gap-4 sm:flex-row">
+
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById('contact')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-4 font-semibold text-white transition hover:scale-105"
+                >
+                  Book Free Demo
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById('features')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }
+                  className="rounded-full border border-slate-300 px-8 py-4 font-semibold text-slate-700 transition hover:border-blue-600 hover:text-blue-600"
+                >
+                  Explore Features
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

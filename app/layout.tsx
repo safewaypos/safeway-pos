@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import React from "react";
 import "./globals.css";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.safewayerp.lk"),
@@ -76,31 +81,34 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-slate-900 text-white antialiased">
+      <body
+        className={`${plusJakarta.className} bg-slate-900 text-white antialiased`}
+      >
         <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      name: "SAFEWAY POS",
-      applicationCategory: "BusinessApplication",
-      operatingSystem: "Windows",
-      description:
-        "Complete ERP & POS Software for Retail, Wholesale, Supermarkets, Restaurants and Distribution Businesses.",
-      url: "https://www.safewayerp.lk",
-      provider: {
-        "@type": "Organization",
-        name: "SAFEWAY TECHNOLOGIES (PVT) LTD",
-      },
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "LKR",
-      },
-    }),
-  }}
-/>
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "SAFEWAY POS",
+              applicationCategory: "BusinessApplication",
+              operatingSystem: "Windows",
+              description:
+                "Complete ERP & POS Software for Retail, Wholesale, Supermarkets, Restaurants and Distribution Businesses.",
+              url: "https://www.safewayerp.lk",
+              provider: {
+                "@type": "Organization",
+                name: "SAFEWAY TECHNOLOGIES (PVT) LTD",
+              },
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "LKR",
+              },
+            }),
+          }}
+        />
+
         {children}
       </body>
     </html>

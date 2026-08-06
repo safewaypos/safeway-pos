@@ -1,157 +1,305 @@
 'use client';
 
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
-import { Quote, CheckCircle } from 'lucide-react';
+import { motion, type Variants } from 'framer-motion';
+import {
+  Star,
+  Quote,
+  CheckCircle2,
+  Sparkles,
+  ArrowRight,
+} from 'lucide-react';
 
 interface Testimonial {
   name: string;
-  businessType: string;
+  company: string;
+  location: string;
   review: string;
   avatar: string;
+  rating: number;
 }
 
 const testimonials: Testimonial[] = [
   {
-    name: "Ahmed Al-Mansoori",
-    businessType: "Retail Chain Owner",
-    review: "SAFEWAY POS has transformed how we manage daily operations. The system is fast, reliable, and the support team is always responsive.",
-    avatar: "AM",
+    name: 'N. Kumar',
+    company: 'City Super Market',
+    location: 'Jaffna',
+    avatar: 'NK',
+    rating: 5,
+    review:
+      'SAFEWAY POS completely changed the way we manage billing and inventory. The software is fast, reliable and very easy for our staff to learn.',
   },
   {
-    name: "Fatima Al-Rashid",
-    businessType: "Restaurant Manager",
-    review: "The inventory and sales modules work seamlessly together. We’ve seen a noticeable improvement in efficiency since implementation.",
-    avatar: "FR",
+    name: 'S. Mohamed',
+    company: 'Modern Pharmacy',
+    location: 'Colombo',
+    avatar: 'SM',
+    rating: 5,
+    review:
+      'Real-time stock control and accounting reports have helped us reduce errors and improve daily operations.',
   },
   {
-    name: "Khalid Al-Sayed",
-    businessType: "Wholesale Distributor",
-    review: "The VAT compliance features and real-time reporting have made our financial processes much more manageable and accurate.",
-    avatar: "KS",
+    name: 'R. Fernando',
+    company: 'Royal Distributors',
+    location: 'Kandy',
+    avatar: 'RF',
+    rating: 5,
+    review:
+      'Excellent support team and a powerful distribution solution. We can manage sales reps, customers and inventory from one system.',
+  },
+  {
+    name: 'A. Perera',
+    company: 'Fresh Mart',
+    location: 'Negombo',
+    avatar: 'AP',
+    rating: 5,
+    review:
+      'Billing is incredibly fast and our staff adapted within a single day. Highly recommended for retail businesses.',
+  },
+  {
+    name: 'M. Silva',
+    company: 'Blue Ocean Restaurant',
+    location: 'Galle',
+    avatar: 'MS',
+    rating: 5,
+    review:
+      'Orders, billing and reports are much easier now. SAFEWAY POS saves us hours every week.',
+  },
+  {
+    name: 'K. Raj',
+    company: 'Raj Electronics',
+    location: 'Batticaloa',
+    avatar: 'KR',
+    rating: 5,
+    review:
+      'Professional software backed by excellent customer support. One of the best investments for our business.',
   },
 ];
 
 const containerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: {
+    opacity: 0,
+  },
   visible: {
     opacity: 1,
     transition: {
       staggerChildren: 0.12,
-      delayChildren: 0.2,
     },
   },
 };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40, scale: 0.96 },
+const fadeUp: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 35,
+  },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: {
+      duration: 0.7,
+    },
   },
 };
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="relative py-24 bg-zinc-950 overflow-hidden">
-      {/* Premium Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(#27272a_0.7px,transparent_1px)] bg-[length:4px_4px]" />
-      <div className="absolute inset-0 bg-[radial-gradient(at_25%_30%,rgba(16,185,129,0.07)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(at_75%_70%,rgba(16,185,129,0.06)_0%,transparent_55%)]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/70 via-transparent to-zinc-950/90" />
+    <section
+      id="testimonials"
+      className="relative overflow-hidden bg-white py-24"
+    >
+      {/* Background */}
 
-      <div className="relative max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.02] text-sm text-emerald-400">
-            Customer Stories
-          </div>
-          <h2 className="text-6xl lg:text-7xl font-semibold tracking-[-3.5px] text-white mb-6">
-            Trusted by <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-400 bg-clip-text text-transparent">businesses</span> like yours
-          </h2>
-          <p className="max-w-2xl mx-auto text-xl text-zinc-400 tracking-[-0.3px]">
-            See how leading retailers are using SAFEWAY POS to streamline their operations.
-          </p>
-        </div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#2563eb10,transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,#06b6d410,transparent_45%)]" />
 
-        {/* Testimonials Grid */}
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+
+        {/* Header */}
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          viewport={{ once: true }}
+          className="mx-auto max-w-3xl text-center"
         >
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              whileHover={{ y: -6 }}
-              className="group relative rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-3xl p-8 transition-all duration-300 hover:bg-zinc-900/80 flex flex-col"
-            >
-              {/* Hover Glow */}
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(350px_circle_at_50%_50%,rgba(16,185,129,0.07),transparent)]" />
 
-              <div className="relative z-10 flex flex-col flex-1">
-                {/* Quote Icon */}
-                <div className="mb-8">
-                  <Quote className="h-8 w-8 text-emerald-500/60" />
-                </div>
+          <motion.div variants={fadeUp}>
 
-                {/* Review */}
-                <p className="text-[15px] leading-relaxed text-zinc-300 flex-1 mb-8">
-                  {testimonial.review}
-                </p>
+            <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-sm font-semibold text-blue-700">
 
-                {/* Customer Info */}
-                <div className="flex items-center gap-4 pt-6 border-t border-white/10">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-sm font-medium text-emerald-400">
-                    {testimonial.avatar}
-                  </div>
-                  <div className="flex-1">
-                    <div className="font-semibold text-white tracking-tight">{testimonial.name}</div>
-                    <div className="text-sm text-zinc-400">{testimonial.businessType}</div>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs text-emerald-400">
-                    <CheckCircle className="h-4 w-4" />
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              <Sparkles className="mr-2 h-4 w-4" />
+
+              Customer Success Stories
+
+            </span>
+
+          </motion.div>
+
+          <motion.h2
+            variants={fadeUp}
+            className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 md:text-5xl"
+          >
+            Loved By
+            <span className="block bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+              Businesses Across Sri Lanka
+            </span>
+          </motion.h2>
+
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 text-lg leading-8 text-slate-600"
+          >
+            Hundreds of businesses trust SAFEWAY POS every day to manage
+            billing, inventory, accounting and business operations with
+            confidence.
+          </motion.p>
+
         </motion.div>
 
-        {/* Bottom CTA Section */}
-        <div className="mt-20 flex justify-center">
-          <div className="inline-flex flex-col lg:flex-row items-center gap-8 rounded-3xl border border-white/10 bg-zinc-900/60 backdrop-blur-3xl px-10 py-8">
-            <div className="text-center lg:text-left max-w-md">
-              <div className="text-2xl font-semibold tracking-tight text-white mb-2">
-                Ready to become our next success story?
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-3"
+        >
+
+          {testimonials.map((item) => (
+
+            <motion.div
+              key={item.name}
+              variants={fadeUp}
+              whileHover={{
+                y: -8,
+              }}
+              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:shadow-xl"
+            >
+
+                            <div className="flex items-center justify-between">
+
+                <Quote className="h-9 w-9 text-blue-200" />
+
+                <div className="flex items-center gap-1">
+
+                  {Array.from({ length: item.rating }).map((_, index) => (
+                    <Star
+                      key={index}
+                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+
+                </div>
+
               </div>
-              <p className="text-zinc-400">
-                Request a Free Demo today and see how SAFEWAY POS can simplify your business.
+
+              <p className="mt-8 leading-8 text-slate-600">
+                "{item.review}"
               </p>
+
+              <div className="mt-8 border-t border-slate-200 pt-6">
+
+                <div className="flex items-center gap-4">
+
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 text-lg font-bold text-white">
+
+                    {item.avatar}
+
+                  </div>
+
+                  <div className="flex-1">
+
+                    <h4 className="font-bold text-slate-900">
+                      {item.name}
+                    </h4>
+
+                    <p className="text-sm text-slate-500">
+                      {item.company}
+                    </p>
+
+                    <p className="mt-1 text-xs font-medium text-blue-600">
+                      {item.location}
+                    </p>
+
+                  </div>
+
+                  <div className="flex items-center gap-1 rounded-full bg-green-100 px-3 py-1">
+
+                    <CheckCircle2 className="h-4 w-4 text-green-600" />
+
+                    <span className="text-xs font-semibold text-green-700">
+                      Verified
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </motion.div>
+
+          ))}
+
+        </motion.div>
+
+        {/* Bottom CTA */}
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mt-24 overflow-hidden rounded-[36px] bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 p-10 shadow-2xl md:p-14"
+        >
+
+          <div className="flex flex-col items-center justify-between gap-8 lg:flex-row">
+
+            <div>
+
+              <h2 className="text-3xl font-extrabold text-white md:text-4xl">
+                Join Hundreds of Happy Businesses
+              </h2>
+
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-blue-100">
+                Experience the same speed, simplicity and reliability that
+                businesses across Sri Lanka enjoy with SAFEWAY POS.
+              </p>
+
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
-              <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-px hover:shadow-[0_0_30px_rgb(16,185,129,0.4)] active:scale-[0.985]"
+            <div className="flex flex-col gap-4 sm:flex-row">
+
+                            <button
+                onClick={() =>
+                  document
+                    .getElementById('contact')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-blue-700 transition hover:scale-105"
               >
                 Book Free Demo
+                <ArrowRight className="h-5 w-5" />
               </button>
+
               <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.02] px-8 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/[0.06] hover:-translate-y-px active:scale-[0.985]"
+                onClick={() =>
+                  document
+                    .getElementById('pricing')
+                    ?.scrollIntoView({ behavior: 'smooth' })
+                }
+                className="rounded-full border border-white/30 px-8 py-4 font-semibold text-white transition hover:bg-white/10"
               >
-                Contact Sales
+                View Pricing
               </button>
+
             </div>
+
           </div>
-        </div>
+
+        </motion.div>
+
       </div>
     </section>
   );
