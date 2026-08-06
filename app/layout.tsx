@@ -81,9 +81,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={`${plusJakarta.className} bg-slate-900 text-white antialiased`}
-      >
+     <body
+  className={`${plusJakarta.className} bg-white text-gray-900 antialiased`}
+>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-white pt-2 lg:pt-7"
+      className="relative min-h-screen overflow-hidden bg-white pt-28 md:pt-24 lg:pt-8"
     >
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-50/60 to-transparent pointer-events-none z-0" />
       {/* Background Pattern */}
@@ -29,7 +29,7 @@ const Hero = () => {
           {/* LEFT SIDE */}
           <div className="lg:col-span-6">
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-[-2px] text-slate-900">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-[-2px] text-slate-900">
 
               Complete POS & ERP Solution
 
@@ -124,7 +124,7 @@ const Hero = () => {
                   width={1400}
                   height={900}
                   priority
-                  className="w-full h-[500px] lg:h-[640px] xl:h-[680px] object-cover transition-all duration-700 hover:scale-[1.03]"
+                  className="w-full h-[360px] sm:h-[450px] lg:h-[640px] xl:h-[680px] object-cover transition-all duration-700 hover:scale-[1.03]"
                 />
 
               </div>

@@ -122,7 +122,7 @@ export default function Navigation() {
     width={500}
 height={120}
     priority
-    className="h-[372px] lg:h-[142px] w-auto object-contain"
+    className="h-10 sm:h-12 lg:h-20 xl:h-24 w-auto object-contain"
   />
 );
 
@@ -130,7 +130,7 @@ height={120}
     <>
 
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 h-16 md:h-20 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 h-16 lg:h-20 transition-all duration-300 ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-sm'
             : 'bg-white/90 backdrop-blur-xl'
@@ -227,7 +227,7 @@ height={120}
             className="fixed inset-0 z-[60] md:hidden bg-white/95 backdrop-blur-3xl"
             onClick={closeMobileMenu}
           >
-            <div className="flex flex-col h-full pt-20 px-6">
+            <div className="flex flex-col h-full pt-24 lg:pt-7">
                             <div className="flex flex-col gap-1">
 
                 {navItems.map((item, index) => (
