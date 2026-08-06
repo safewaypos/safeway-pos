@@ -105,7 +105,7 @@ const Hero = () => {
 
           {/* RIGHT SIDE */}
 
-          <div className="lg:col-span-6 flex justify-end">
+          <div className="lg:col-span-6 flex justify-center lg:justify-end mt-10 lg:mt-0">
 
             <motion.div
               initial={{ opacity: 0, x: 60 }}
@@ -119,13 +119,13 @@ const Hero = () => {
               
 
                 <Image
-                  src="/office-reception.png"
-                  alt="SAFEWAY TECHNOLOGIES (PVT) LTD."
-                  width={1400}
-                  height={900}
-                  priority
-                  className="w-full h-[360px] sm:h-[450px] lg:h-[640px] xl:h-[680px] object-cover transition-all duration-700 hover:scale-[1.03]"
-                />
+  src="/office-reception.png"
+  alt="SAFEWAY TECHNOLOGIES"
+  width={1400}
+  height={900}
+  priority
+  className="w-full max-w-sm sm:max-w-md lg:max-w-none h-auto rounded-3xl object-cover"
+/>
 
               </div>
 
