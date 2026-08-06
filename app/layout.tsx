@@ -82,7 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en">
      <body
-  className={`${plusJakarta.className} bg-white text-gray-900 antialiased`}
+  className={`${plusJakarta.className} bg-white text-slate-900 antialiased`}
 >
         <script
           type="application/ld+json"
