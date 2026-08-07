@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-white pt-28 md:pt-20 md:pt-24 lg:pt-7 lg:pt-8"
+      className="relative min-h-screen overflow-hidden bg-white pt-16 md:pt-24 lg:pt-32"
     >
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-50/60 to-transparent pointer-events-none z-0" />
       {/* Background Pattern */}

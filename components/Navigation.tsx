@@ -122,7 +122,7 @@ export default function Navigation() {
     width={500}
     height={120}
     priority
-    className="h-12 sm:h-14 lg:h-[142px] w-auto object-contain transition-all duration-300"
+    className="h-14 sm:h-16 lg:h-[142px] sm:h-14 lg:h-[142px] w-auto object-contain transition-all duration-300"
   />
 );
 
