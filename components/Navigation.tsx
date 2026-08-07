@@ -120,9 +120,9 @@ export default function Navigation() {
     src="/logo.png"
     alt="SAFEWAY TECHNOLOGIES"
     width={500}
-height={120}
+    height={120}
     priority
-    className="h-10 sm:h-12 lg:h-16 w-auto object-contain"
+    className="h-12 sm:h-14 lg:h-[142px] w-auto object-contain transition-all duration-300"
   />
 );
 
@@ -137,7 +137,7 @@ height={120}
         }`}
       >
 
-        <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between py-1 lg:py-0">
 
           <a
             href="#home"
@@ -145,7 +145,7 @@ height={120}
               e.preventDefault();
               scrollToSection('#home');
             }}
-            className="flex items-center mr-10"
+            className="flex items-center mr-3 lg:mr-10"
           >
             <Logo />
           </a>
@@ -199,7 +199,7 @@ height={120}
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden p-2 text-slate-800 transition-colors hover:text-blue-600"
+            className="md:hidden p-2.5 text-slate-800 transition-colors hover:text-blue-600"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
           >
@@ -227,7 +227,7 @@ height={120}
             className="fixed inset-0 z-[60] md:hidden bg-white/95 backdrop-blur-3xl"
             onClick={closeMobileMenu}
           >
-            <div className="flex flex-col h-full pt-24 lg:pt-7">
+            <div className="flex flex-col h-full pt-20 lg:pt-7">
                             <div className="flex flex-col gap-1">
 
                 {navItems.map((item, index) => (
